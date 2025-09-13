@@ -1,0 +1,10 @@
+This folder is a direct copy from the following source:
+
+Depth Pro: https://github.com/apple/ml-depth-pro
+- Copyright (C) 2024 Apple Inc. All Rights Reserved.
+- See LICENSES/DEPTH_PRO for the full license text
+
+Changes made:
+- In depth_pro.py:
+    Line 135: state_dict = torch.load(config.checkpoint_uri, map_location="cpu") --> state_dict = torch.load(config.checkpoint_uri, map_location="cpu", weights_only=False)
+    checkpoint_uri: checkpoint_uri="./checkpoints/depth_pro.pt" --> checkpoint_uri="./depth_pro/checkpoints/depth_pro.pt"

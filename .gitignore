@@ -1,0 +1,3 @@
+# Ignore all __pycache__ folders recursively
+**/__pycache__/
+*.pyc

@@ -1,0 +1,14 @@
+The contents in this folder have been copied from the following source:
+
+LiDAR_fog_sim: https://github.com/MartinHahner/LiDAR_fog_sim
+- Author: Martin Hahner
+- CC BY-NC 4.0 License
+- See LICENSES/LiDAR_fog_sim for the full license text
+
+Changes made:
+- In theory.py:
+    Line 642: integral = scipy_integrate.simps(y, x) --> integral = scipy_integrate.simpson(y, x)
+
+- In fog_simulation.py:
+    Line 19: INTEGRAL_PATH = Path(os.path.dirname(os.path.realpath(__file__))) / 'integral_lookup_tables' / 'original' --> INTEGRAL_PATH = Path("./src/fog_pipeline/simulate_fog/lidar/LiDAR_fog_sim/integral_lookup_tables")
+    Line 175: filename = INTEGRAL_PATH / f'integral_0m_to_200m_stepsize_0.1m_tau_h_{tau_h}ns_alpha_{alpha}.pickle' --> filename = INTEGRAL_PATH / f'integral_0m_to_200m_stepsize_0.1m_tau_h_{tau_h}ns_alpha_{alpha:.3f}.pickle'

@@ -1,0 +1,10 @@
+The contents in this folder have been copied from the following source:
+
+FoHIS: https://github.com/noahzn/FoHIS
+- Authors: Ning Zhang, Lin Zhang, and Zaixi Cheng. GNU v3.0 License
+- See LICENSES/AUTHESI for the full license text
+
+Changes made:
+- In compute_authenticity.py:
+    process_block() has been added to allow for multiprocessing
+    authenticity() changed to accept NumPy array instead of image path

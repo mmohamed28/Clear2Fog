@@ -1,0 +1,3 @@
+Place depth_pro.pt in this folder
+
+wget https://ml-site.cdn-apple.com/models/depth-pro/depth_pro.pt -P ./src/fog_pipeline/depth_map/depth_pro/checkpoints
