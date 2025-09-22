@@ -2,13 +2,13 @@
 
 This repository contains the source code for the MSc dissertation, "Towards Robust 3D Object Detection in Fog: A Multimodal End-to-End Pipeline for Fog Simulation".
 
-**Dissertation link:** [PDF](https://drive.google.com/file/d/1ync_1Tntt8n_aJwgNUptoDkEv8AkEp5P/view?usp=drive_link)
+**Dissertation link:** [PDF](https://drive.google.com/file/d/15gQaXQ4bzpc1ANtAMG1yeO2jI6EzIs1v/view?usp=sharing)
 
 ---
-To address the critical scarcity of large-scale foggy datasets for autonomous vehicle research, this dissertation introduces Clear2Fog (C2F), a configurable and reusable pipeline for generating consistent multimodal fog. 
+To address the scarcity of large-scale foggy datasets for autonomous vehicle research, this dissertation introduces Clear2Fog (C2F), a configurable and reusable pipeline for generating consistent multimodal fog. 
 The pipeline introduces key innovations, including a physically-grounded atmospheric light model and a metric-driven Optimal Candidate Selection (OCS) module to enhance realism. 
-A comprehensive evaluation revealed a critical trade-off between the OCS module's improved global realism and the introduction of local structural artifacts. 
-Ultimately, the C2F pipeline provides a deeper understanding of the complexities of simulation realism and offers a flexible tool for both large-scale data generation (via its baseline) and in-depth validation (via the OCS module).
+A comprehensive evaluation revealed a trade-off between the OCS module's improved global realism and the introduction of local structural artifacts. 
+Ultimately, the C2F pipeline provides a deeper understanding of the complexities of simulation realism and offers a practical and flexible tool for large-scale data generation.
 
 ### Key Features
 
@@ -23,7 +23,7 @@ Ultimately, the C2F pipeline provides a deeper understanding of the complexities
 
 #### 1. Setup Environment
 
-Clone the repository and create the Conda environment from the provided file. This will install all necessary dependencies.
+Clone this repository and create the Conda environment from the provided file. This will install all necessary dependencies.
 
 ```bash
 git clone https://github.com/mmohamed28/Clear2Fog
@@ -57,10 +57,6 @@ python c2f.py \
 * ```-o```: Empty output folder to save the simulated files
 * ```-v```: Visibility distance in metres, controlling fog density (lower values = denser fog)
 * ```--no_ocs```: A flag to disable the Optimal Candidate Selection module and run the baseline pipeline
-
----
-### Validation: The Waymo Open Dataset
-The pipeline's end-to-end functionality was validated on a scene from the Waymo Open Dataset using both camera and LiDAR data. The full output can be accessed here: COMING SOON
 
 ---
 ### Acknowledgments and Dependencies
