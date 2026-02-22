@@ -1,5 +1,0 @@
-The contents in this folder have been copied from the following source:
-
-SCI: https://github.com/vis-opt-group/SCI
-- Copyright (c) 2022 Tengyu Ma. MIT License
-- See LICENSES/SCI for the full license text

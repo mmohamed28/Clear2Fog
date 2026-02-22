@@ -1,1 +1,0 @@
-Place the SRD+ models and vgg-19 in this folder
