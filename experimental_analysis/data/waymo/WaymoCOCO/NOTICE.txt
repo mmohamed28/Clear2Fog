@@ -1,0 +1,5 @@
+The contents in this folder have been copied from the following source:
+
+WaymoCOCO: https://github.com/shinya7y/WaymoCOCO
+- Author: shinya7y. Apache-2.0 License
+- See LICENSES/WAYMO_COCO for the full license text
