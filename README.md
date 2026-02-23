@@ -1,22 +1,17 @@
-# Clear2Fog: A Multimodal End-to-End Pipeline for Fog Simulation
+# Clear2Fog
 
-This repository contains the source code for the MSc dissertation, "Towards Robust 3D Object Detection in Fog: A Multimodal End-to-End Pipeline for Fog Simulation".
+Clear2Fog (C2F) is a multimodal simulation pipeline built to address the lack of adverse weather data in autonomous driving. It transforms standard clear-weather data into consistent, physics-based fog across both camera and LiDAR simultaneously.
 
-**Dissertation link:** [PDF](https://drive.google.com/file/d/15gQaXQ4bzpc1ANtAMG1yeO2jI6EzIs1v/view?usp=sharing)
+Instead of just adding a foggy filter, C2F uses a physically-grounded atmospheric model to ensure environmental consistency. This repository contains the framework used for our research on simulation realism and large-scale data scaling.
 
----
-To address the scarcity of large-scale foggy datasets for autonomous vehicle research, this dissertation introduces Clear2Fog (C2F), a configurable and reusable pipeline for generating consistent multimodal fog. 
-The pipeline introduces key innovations, including a physically-grounded atmospheric light model and a metric-driven Optimal Candidate Selection (OCS) module to enhance realism. 
-A comprehensive evaluation revealed a trade-off between the OCS module's improved global realism and the introduction of local structural artifacts. 
-Ultimately, the C2F pipeline provides a deeper understanding of the complexities of simulation realism and offers a practical and flexible tool for large-scale data generation.
 
 ### Key Features
 
 * **Multimodal:** Generates consistent fog on multimodal (camera + LiDAR) datasets, and can also process camera-only or LiDAR-only data
+* **Physically Grounded:** Implements an atmospheric scattering model to ensure realistic light distribution and depth-aware simulation
 * **Configurable:** Allows users to set a specific fog density via a visibility parameter
-* **Realistic:** Incorporates a novel OCS module to address unrealistic shadows and lighting in standard models
 * **Generalisable:** Proven to work on datasets outside the autonomous driving domain like COCO and Flickr30k
-* **Practical & Easy to Use:** Get started in three simple steps: create the environment from the .yml file, download the required pre-trained models and run the pipeline
+* **Practical & Easy to Use:** Get started in three simple steps: create the environment from the .yml file, download the required pre-trained model and run the pipeline
 
 ---
 ### Getting Started
@@ -34,12 +29,9 @@ conda activate c2f
 
 #### 2. Download Pre-trained Models
 
-This pipeline relies on several pre-trained models. Please download the following checkpoints and place them in the specified directories:
+This pipeline relies on the Depth Pro model. Please download the following checkpoint and place it in the specified directory:
 
-* Depth Pro: Download ```depth_pro.pt``` from [ml-depth-pro](https://github.com/apple/ml-depth-pro/blob/main/get_pretrained_models.sh) and place it in ./src/fog_pipeline/depth_map/depth_pro/checkpoints/
-* DHAN (De-shadowing):
-  * Download the pre-trained ```SRD+ models``` from [ghost-free-shadow-removal](https://github.com/vinthony/ghost-free-shadow-removal) and ```imagenet-vgg-verydeep-19``` from [MatConvNet](https://www.vlfeat.org/matconvnet/pretrained/#downloading-the-pre-trained-models) and place them in ./src/fog_pipeline/image_enhancement/DHAN/models
-  * The exact models used when testing can be found [here](https://drive.google.com/file/d/1pcrrFMs0jEUc0wIGzNQlzY5MAWS6-br6/view?usp=sharing)
+* Depth Pro: Download ```depth_pro.pt``` from [ml-depth-pro](https://github.com/apple/ml-depth-pro/blob/main/get_pretrained_models.sh) and place it in ```./src/fog_pipeline/depth_map/depth_pro/checkpoints/```
 
 #### 3. Demo
 You are now ready to run the pipeline. You can use the following command as a template:
@@ -49,21 +41,17 @@ python c2f.py \
 -c CAMERA_DIR \
 -l LIDAR_DIR \
 -o OUTPUT_DIR \
--v VIS_METRES \
---no_ocs
+-v VIS_METRES
 ```
 * ```-c```: Input folder containing the RGB files
 * ```-l```: Input folder containing the ```.npy``` point cloud files
 * ```-o```: Empty output folder to save the simulated files
 * ```-v```: Visibility distance in metres, controlling fog density (lower values = denser fog)
-* ```--no_ocs```: A flag to disable the Optimal Candidate Selection module and run the baseline pipeline
 
 ---
 ### Acknowledgments and Dependencies
 This project builds upon the excellent work of many other researchers. The ```LICENSES``` folder contains the full license for each of the third-party models used.
 
 * Depth Pro: [https://github.com/apple/ml-depth-pro](https://github.com/apple/ml-depth-pro)
-* DHAN: [https://github.com/cydiachen/DHAN](https://github.com/vinthony/ghost-free-shadow-removal)
-* SCI: [https://github.com/vis-opt-group/SCI](https://github.com/vis-opt-group/SCI)
 * LiDAR Fog Simulation: [https://github.com/MartinHahner/LiDAR-Fog-Simulation](https://github.com/MartinHahner/LiDAR_fog_sim)
-* AuthESI: https://github.com/noahzn/FoHIS
+* WaymoCOCO: [https://github.com/shinya7y/WaymoCOCO](https://github.com/shinya7y/WaymoCOCO)
